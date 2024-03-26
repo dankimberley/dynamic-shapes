@@ -1,7 +1,26 @@
 // const moveButton = document.querySelector('button')
 // moveButton.addEventListener('click', moveCircle)
 
+function convertPosToYear(xPos) {
+    const startDiv = document.getElementById('starting-year')
+    let start = Math.round(startDiv.getBoundingClientRect().x)
+    let startVal = startDiv.textContent
 
+    const endDiv = document.getElementById('ending-year')
+    let end = Math.round(endDiv.getBoundingClientRect().x)
+    let endVal = endDiv.textContent
+
+    let range = endVal - startVal
+
+    percentage = (xPos - start) / (end - start)
+
+    if (percentage >= 0) {
+        return (Math.round(percentage * range) + "AD")
+    } else {
+        return (Math.round(percentage * range) + "BC")
+    }
+    
+}
 
 handleMouseMove = (event) => {
     const x = event.clientX;
@@ -31,8 +50,12 @@ handleMouseClick = (event) => {
     newBox.classList.add('marker')
     
     const boxHeader = document.createElement('h1')
-    boxHeader.textContent = event.clientX
+    boxHeader.textContent = convertPosToYear(event.clientX)
     newBox.appendChild(boxHeader)
+
+    const boxIcon = document.createElement('img')
+    boxIcon.src = 'x.svg'
+    newBox.appendChild(boxIcon)
 
     const boxDetail = document.createElement('p')
     boxDetail.textContent = input.value
@@ -42,6 +65,7 @@ handleMouseClick = (event) => {
     newBox.style.position = 'absolute';
     newBox.style.left = event.clientX + 'px';
     container.appendChild(newBox)
+
 }
 
 let timer
@@ -61,3 +85,5 @@ window.addEventListener("mousedown",function(){
 document.addEventListener('mousemove', handleMouseMove);
 
 document.addEventListener('mousedown', handleMouseClick)
+
+const deleteButton = document.get
