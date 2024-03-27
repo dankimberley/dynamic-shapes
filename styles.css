@@ -114,8 +114,24 @@ input::selection {
     }
 }
 
+@keyframes scale-down {
+    0% {
+        scale: 0%;
+    }
+
+    70% {
+        scale: 130%;
+        transform: translateY(5.1rem)
+    }
+
+    100% {
+        scale: 100%;
+        transform: translateY(5rem);
+    }
+}
+
 .marker {
-    height: 7rem;
+    height: 6rem;
     width: 20ch;
     background-color: var(--blue);
     color: var(--white);
@@ -130,22 +146,19 @@ input::selection {
     
 }
 
+.marker-flipped {
+    
+    transform: translateY(5rem);
+    animation: scale-down 500ms;
+    
+}
+
 .marker:hover {
     scale: 150%;
     border: solid 5px;
     border-color: var(--red);
 }
 
-.marker:before {
-    content:"";
-   position: absolute;
-   width: 0;
-   height: 0;
-   border-top: 13px solid transparent;
-   border-right: 26px solid var(--blue);
-   border-bottom: 13px solid transparent;
-   margin: 13px 0 0 -25px;
-}
 
 .marker>h1 {
     margin: 0;

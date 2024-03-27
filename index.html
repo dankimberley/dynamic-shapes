@@ -6,15 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div id="title">
         Timeline
+        <!-- <button onclick="pdf()">Save PDF</button> -->
     </div>
     <div id="line">
-        <div id="starting-year" class="year">0</div>
+        <div id="starting-year" class="year">1000</div>
         <div id="circle"></div>
-        <div id="ending-year" class="year">2024</div>
+        <div id="ending-year" class="year">1300</div>
     </div>
     <div id="content">
         <input type="text">
